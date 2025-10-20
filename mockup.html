@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Gudang (Updated Wireframe)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .kpi div {
+      border: 1px dashed #999;
+      text-align: center;
+      padding: 20px;
+      background: #fafafa;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .two-column {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    .table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .table th, .table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    .alert, .actions {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .progress {
+      margin-top: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #ddd;
+      margin-top: 6px;
+      border-radius: 4px;
+    }
+    .progress-bar span {
+      display: block;
+      height: 10px;
+      background: #4caf50;
+      border-radius: 4px;
+    }
+    .actions button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px;
+      border: 1px solid #333;
+      background: #eaeaea;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h2>Hi, Operator Gudang 👋</h2>
+      <p>Senin, 20 Oktober 2025 - 07:45 WIB</p>
+    </div>
+    <div>
+      <strong>Status:</strong> Online
+    </div>
+  </header>
+
+  <section class="kpi">
+    <div>Penerimaan Hari Ini<br><strong>120</strong></div>
+    <div>Pengeluaran Hari Ini<br><strong>98</strong></div>
+    <div>Mutasi Barang<br><strong>14</strong></div>
+    <div>Tugas Pending<br><strong>7</strong></div>
+  </section>
+
+  <div class="progress">
+    <div class="section-title">Progres Proses Gudang</div>
+    <p><strong>Inbound:</strong> Receiving → QC → Putaway</p>
+    <div class="progress-bar"><span style="width: 75%;"></span></div>
+    <p style="margin-top:10px;"><strong>Outbound:</strong> Picking → Packing → Shipping</p>
+    <div class="progress-bar"><span style="width: 50%; background:#2196f3;"></span></div>
+  </div>
+
+  <section class="two-column" style="margin-top:20px;">
+    <div class="table">
+      <div class="section-title">Aktivitas Terbaru</div>
+      <table>
+        <tr><th>Waktu</th><th>Aktivitas</th><th>User</th><th>Status</th></tr>
+        <tr><td>07:30</td><td>Receiving #INV-021</td><td>Rudi</td><td>Selesai</td></tr>
+        <tr><td>07:10</td><td>Picking #ORD-334</td><td>Dewi</td><td>Proses</td></tr>
+        <tr><td>06:55</td><td>Putaway Rak A → B</td><td>Anton</td><td>Selesai</td></tr>
+      </table>
+    </div>
+
+    <div class="alert">
+      <div class="section-title">Alert & Notifikasi</div>
+      <ul>
+        <li>⚠️ Barang belum di-QC (3 item)</li>
+        <li>🚚 Order #ORD-332 menunggu di staging</li>
+        <li>📦 2 pallet belum di-putaway</li>
+        <li>❗ Stok barang X di bawah minimum</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="two-column" style="margin-top:20px;">
+    <div class="table">
+      <div class="section-title">Antrian Pengiriman</div>
+      <table>
+        <tr><th>Order</th><th>Tujuan</th><th>Staging Area</th><th>Status</th></tr>
+        <tr><td>#ORD-340</td><td>Jakarta Timur</td><td>Area 1</td><td>Packing</td></tr>
+        <tr><td>#ORD-341</td><td>Depok</td><td>Area 2</td><td>Picking</td></tr>
+        <tr><td>#ORD-342</td><td>Bekasi</td><td>Area 3</td><td>Loading</td></tr>
+      </table>
+    </div>
+
+    <div class="actions">
+      <div class="section-title">Tindakan Cepat</div>
+      <button>+ Penerimaan Barang</button>
+      <button>+ Pemeriksaan QC</button>
+      <button>+ Barang Keluar</button>
+      <button>+ Pindah Barang</button>
+    </div>
+  </section>
+
+  <footer style="margin-top:20px;text-align:center;font-size:12px;color:#888;">
+    © 2025 WMS Prototype - Dashboard Operasional Sesuai Flow Inbound & Outbound
+  </footer>
+  
+  <!-- ===== Styled Forms Section ===== -->
+  <section style="margin-top:40px;">
+    <h2 style="margin:0 0 12px 0;">Form Operasional (Styled)</h2>
+    <p style="color:#666;margin:0 0 16px 0;">Versi ini kasih sentuhan CSS ringan: grid 2 kolom, table zebra, input focus, dan tombol primary.</p>
+  </section>
+
+  <style>
+    :root{
+      --surface:#ffffff; --line:#e5e7eb; --muted:#6b7280; --ink:#111827; --brand:#2563eb; --brand-2:#1d4ed8; --ok:#16a34a; --warn:#d97706; --bad:#dc2626; --bg:#f5f5f5;
+      --radius:10px;
+    }
+    .form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:18px 0;}
+    .form-title{margin:0 0 12px 0;font-size:18px;color:var(--ink)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid-3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column}
+    .field label{font-weight:600;color:var(--muted);font-size:12px;margin-bottom:6px}
+    .field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:10px;font-size:14px;background:#fff}
+    .field textarea{min-height:88px}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .actions-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{border:1px solid var(--line);background:#f3f4f6;border-radius:8px;padding:10px 14px;cursor:pointer}
+    .btn-primary{background:var(--brand);color:#fff;border-color:var(--brand-2)}
+    .btn-outline{background:#fff}
+    .hint{color:var(--muted);font-size:12px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+    .chip{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:#fafafa;color:#374151}
+    .chip.ok{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+    .chip.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+    .chip.bad{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+    .table-zebra{width:100%;border-collapse:collapse;margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    .table-zebra th{background:#f9fafb;text-align:left;font-size:12px;color:#374151}
+    .table-zebra th,.table-zebra td{padding:10px;border-bottom:1px solid var(--line)}
+    .table-zebra tr:nth-child(even){background:#fcfcfc}
+    .right{justify-content:flex-end}
+    @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+  </style>
+
+  <!-- Inbound / Receiving -->
+  <div class="form-card">
+    <h3 class="form-title">Penerimaan Barang (Receiving)</h3>
+    <div class="grid-3">
+      <div class="field"><label>No. PO</label><input placeholder="PO-000123"/></div>
+      <div class="field"><label>Supplier</label><input placeholder="PT Sumber Makmur"/></div>
+      <div class="field"><label>Tanggal Penerimaan</label><input type="date"/></div>
+    </div>
+    <div class="chips"><span class="chip ok">Barcode aktif</span><span class="chip warn">2 item perlu QC</span></div>
+    <table class="table-zebra">
+      <tr><th>SKU</th><th>Nama Barang</th><th>Qty</th><th>Lokasi Tujuan</th></tr>
+      <tr><td><input placeholder="A-001"/></td><td><input placeholder="Kotak Kardus"/></td><td><input type="number" placeholder="100"/></td><td><input placeholder="R1-S01"/></td></tr>
+    </table>
+    <div class="grid-2">
+      <div class="field"><label>Catatan</label><textarea placeholder="Catatan tambahan..."></textarea></div>
+      <div class="field"><label>Label & Kode</label><input placeholder="Barcode / RFID akan digenerate"/></div>
+    </div>
+    <div class="actions-row right"><button class="btn">Simpan Draft</button><button class="btn btn-primary">Submit Receiving</button></div>
+  </div>
+
+  <!-- QC -->
+  <div class="form-card">
+    <h3 class="form-title">Pemeriksaan & QC</h3>
+    <div class="grid-3">
+      <div class="field"><label>Referensi</label><input placeholder="PO-000123 / INV-021"/></div>
+      <div class="field"><label>SKU</label><input placeholder="A-001"/></div>
+      <div class="field"><label>Kondisi</label>
+        <select>
+          <option>Baik</option>
+          <option>Rusak</option>
+          <option>Cacat</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Catatan QC</label><textarea placeholder="Keterangan hasil pemeriksaan..."></textarea></div>
+    <div class="actions-row right"><button class="btn">Tandai Perlu Tindak Lanjut</button><button class="btn btn-primary">Simpan Hasil QC</button></div>
+  </div>
+
+  <!-- Outbound -->
+  <div class="form-card">
+    <h3 class="form-title">Barang Keluar (Outbound)</h3>
+    <div class="grid-3">
+      <div class="field"><label>No. Order</label><input placeholder="#ORD-334"/></div>
+      <div class="field"><label>Customer</label><input placeholder="CV Mitra Jaya"/></div>
+      <div class="field"><label>Tanggal Pengiriman</label><input type="date"/></div>
+    </div>
+    <table class="table-zebra">
+      <tr><th>SKU</th><th>Nama Barang</th><th>Qty</th><th>Lokasi Asal</th></tr>
+      <tr><td><input placeholder="A-001"/></td><td><input placeholder="Kotak Kardus"/></td><td><input type="number" placeholder="20"/></td><td><input placeholder="R1-S01"/></td></tr>
+    </table>
+    <div class="grid-2">
+      <div class="field"><label>Kurir / Ekspedisi</label><input placeholder="JNE / Internal Truck"/></div>
+      <div class="field"><label>Staging Area</label><input placeholder="Area 2"/></div>
+    </div>
+    <div class="actions-row right"><button class="btn">Simpan Draft</button><button class="btn btn-primary">Konfirmasi Outbound</button></div>
+  </div>
+
+  <!-- Mutasi -->
+  <div class="form-card">
+    <h3 class="form-title">Pindah Barang (Mutasi)</h3>
+    <div class="grid-3">
+      <div class="field"><label>SKU</label><input placeholder="A-001"/></div>
+      <div class="field"><label>Lokasi Asal</label><input placeholder="R1-S01"/></div>
+      <div class="field"><label>Lokasi Tujuan</label><input placeholder="R2-S03"/></div>
+    </div>
+    <div class="grid-2">
+      <div class="field"><label>Jumlah</label><input type="number" placeholder="10"/></div>
+      <div class="field"><label>Alasan Pindah</label><input placeholder="Penyesuaian layout"/></div>
+    </div>
+    <div class="actions-row right"><button class="btn">Simpan Draft</button><button class="btn btn-primary">Submit Mutasi</button></div>
+  </div>
+
+  <footer style="margin:20px 0 0;text-align:center;font-size:12px;color:#888;">
+    © 2025 WMS Prototype — Dashboard & Styled Forms
+  </footer>
+</body>
+</html>
